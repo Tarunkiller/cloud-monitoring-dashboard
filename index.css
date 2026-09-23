@@ -1,0 +1,288 @@
+:root {
+  --bg: #0b1020;
+  --panel: #121a30;
+  --border: #233152;
+  --text: #e7ecf7;
+  --muted: #8ea0c6;
+  --ok: #3ddc97;
+  --warn: #f5b942;
+  --crit: #ff5d6c;
+  --accent: #5b8cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+button {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 7px 12px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.auth-shell {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  display: grid;
+  width: min(100%, 390px);
+  gap: 14px;
+}
+
+.login-card h1 {
+  margin: 0;
+}
+
+.login-card label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.login-card input {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 10px;
+  background: #0b1020;
+  color: var(--text);
+  font: inherit;
+}
+
+.auth-error {
+  border-radius: 7px;
+  padding: 9px;
+  background: rgba(255, 93, 108, 0.14);
+  color: var(--crit);
+  font-size: 0.8rem;
+}
+
+.operation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.operation-result {
+  margin-top: 12px;
+  color: var(--ok);
+  font-size: 0.78rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sub {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pill.ok {
+  background: rgba(61, 220, 151, 0.12);
+  color: var(--ok);
+}
+
+.pill.down {
+  background: rgba(245, 185, 66, 0.12);
+  color: var(--warn);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 24px 28px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.card h2 {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.metric-row:last-child {
+  border-bottom: none;
+}
+
+.server-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.server-role {
+  color: var(--muted);
+  font-size: 0.74rem;
+  margin-top: 2px;
+}
+
+.bar-wrap {
+  width: 120px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 8px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+th, td {
+  padding: 8px 7px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+th {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge.critical {
+  background: rgba(255, 93, 108, 0.14);
+  color: var(--crit);
+}
+
+.badge.warning {
+  background: rgba(245, 185, 66, 0.14);
+  color: var(--warn);
+}
+
+.badge.INFO,
+.badge.WARNING,
+.badge.ERROR,
+.badge.CRITICAL {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.badge.valid {
+  background: rgba(61, 220, 151, 0.12);
+  color: var(--ok);
+}
+
+.badge.invalid {
+  background: rgba(255, 93, 108, 0.12);
+  color: var(--crit);
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 220px;
+}
+
+@media (max-width: 960px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}
